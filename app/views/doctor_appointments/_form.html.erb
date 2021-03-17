@@ -42,7 +42,7 @@
   <% else %>
     <div class="field pure-control-group">
       <%= form.label :user_id %>
-      <%= form.select :user_id, options_for_select(@users.map{ |u| [u.first_name+' '+u.last_name, u.id, {'username'=>u.username}] }, selected_key = form.object.user_id) %>
+      
     </div>
   <% end %>
 

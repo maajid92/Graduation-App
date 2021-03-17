@@ -25,7 +25,7 @@ class DoctorAppointmentsController < ApplicationController
 
   # GET /doctor_appointments/new
   def new
-    @doctor_appointment = DoctorAppointment.new
+    @doctor_appointment = current_user.doctor_appointment.build
   end
 
   # GET /doctor_appointments/1/edit
@@ -35,7 +35,7 @@ class DoctorAppointmentsController < ApplicationController
   # POST /doctor_appointments
   # POST /doctor_appointments.json
   def create
-    @doctor_appointment = DoctorAppointment.new(doctor_appointment_params)
+    @doctor_appointment = current_user.doctor_appointment.build(doctor_appointment_params)
 
     respond_to do |format|
       if @doctor_appointment.save
