@@ -18,8 +18,6 @@ class DoctorAppointmentsController < ApplicationController
     end
   end
 
-  # GET /doctor_appointments/1
-  # GET /doctor_appointments/1.json
   def show
   end
 
@@ -33,7 +31,6 @@ class DoctorAppointmentsController < ApplicationController
   end
 
   # POST /doctor_appointments
-  # POST /doctor_appointments.json
   def create
     @doctor_appointment = current_user.doctor_appointment.build(doctor_appointment_params)
 
@@ -43,7 +40,7 @@ class DoctorAppointmentsController < ApplicationController
         format.json { render :show, status: :created, location: @doctor_appointment }
       else
         format.html { render :new }
-        format.json { render json: @doctor_appointment.errors, status: :unprocessable_entity }
+        
       end
     end
   end
@@ -57,7 +54,7 @@ class DoctorAppointmentsController < ApplicationController
         format.json { render :show, status: :ok, location: @doctor_appointment }
       else
         format.html { render :edit }
-        format.json { render json: @doctor_appointment.errors, status: :unprocessable_entity }
+        
       end
     end
   end
