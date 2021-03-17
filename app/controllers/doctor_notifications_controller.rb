@@ -5,7 +5,6 @@ class DoctorNotificationsController < ApplicationController
   before_action :authenticate_user!
 
   # GET /doctor_notifications
-  # GET /doctor_notifications.json
   def index
     if @doctor && @user
       @doctor_notifications = DoctorNotification.where(doctor_id: @doctor.id, user_id: @user.id)
@@ -45,7 +44,6 @@ class DoctorNotificationsController < ApplicationController
         format.json { render :show, status: :created, location: @doctor_notification }
       else
         format.html { render :new }
-        format.json { render json: @doctor_notification.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -59,7 +57,7 @@ class DoctorNotificationsController < ApplicationController
         format.json { render :show, status: :ok, location: @doctor_notification }
       else
         format.html { render :edit }
-        format.json { render json: @doctor_notification.errors, status: :unprocessable_entity }
+        
       end
     end
   end

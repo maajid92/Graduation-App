@@ -33,7 +33,7 @@
   <% else %>
     <div class="field pure-control-group">
       <%= form.label :doctor_id %>
-      <%= form.select :doctor_id, options_for_select(@doctors.map{ |d| [d.first_name+' '+d.last_name, d.id, {'username'=>d.username}] }, selected_key = form.object.doctor_id) %>
+      <%= form.collection_select :doctor_id, Doctor.order(:first_name),:id,:first_name, include_blank: true, id: 'pprice', class: 'form-control' %>
     </div>
   <% end %>
   <% if @user %>

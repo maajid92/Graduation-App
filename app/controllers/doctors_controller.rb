@@ -2,7 +2,6 @@ class DoctorsController < ApplicationController
   before_action :set_doctor, only: [:show, :edit, :update, :destroy]
 
   # GET /doctors
-  # GET /doctors.json
   def index
     first_name = request.query_parameters['firstName']
     last_name = request.query_parameters['lastName']
@@ -15,7 +14,6 @@ class DoctorsController < ApplicationController
   end
 
   # GET /doctors/1
-  # GET /doctors/1.json
   def show
   end
 
@@ -56,7 +54,6 @@ class DoctorsController < ApplicationController
       else
         @doctor.errors.add(:username, :blank, message: "Invalid credentials")
         format.html { render :login }
-        format.json { render json: @doctor.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -72,7 +69,6 @@ class DoctorsController < ApplicationController
         format.json { render :show, status: :created, location: @doctor }
       else
         format.html { render :new }
-        format.json { render json: @doctor.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -86,13 +82,11 @@ class DoctorsController < ApplicationController
         format.json { render :show, status: :ok, location: @doctor }
       else
         format.html { render :edit }
-        format.json { render json: @doctor.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /doctors/1
-  # DELETE /doctors/1.json
   def destroy
     @doctor.destroy
     respond_to do |format|

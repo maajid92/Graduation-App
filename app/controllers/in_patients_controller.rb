@@ -4,7 +4,6 @@ class InPatientsController < ApplicationController
   before_action :set_doctor_user_from_session, only: [:index, :new]
 
   # GET /in_patients
-  # GET /in_patients.json
   def index
     if @doctor && @user
       @in_patients = InPatient.where(user_id: @user.id, doctor_id: @doctor.id)
@@ -18,7 +17,6 @@ class InPatientsController < ApplicationController
   end
 
   # GET /in_patients/1
-  # GET /in_patients/1.json
   def show
   end
 
@@ -32,7 +30,6 @@ class InPatientsController < ApplicationController
   end
 
   # POST /in_patients
-  # POST /in_patients.json
   def create
     @in_patient = InPatient.new(in_patient_params)
 
@@ -42,7 +39,6 @@ class InPatientsController < ApplicationController
         format.json { render :show, status: :created, location: @in_patient }
       else
         format.html { render :new }
-        format.json { render json: @in_patient.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -56,7 +52,6 @@ class InPatientsController < ApplicationController
         format.json { render :show, status: :ok, location: @in_patient }
       else
         format.html { render :edit }
-        format.json { render json: @in_patient.errors, status: :unprocessable_entity }
       end
     end
   end

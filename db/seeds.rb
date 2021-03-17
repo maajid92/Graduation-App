@@ -9,3 +9,15 @@ user = User.find_or_initialize_by(email: 'health@gmail.com')
 user.password = 'admin@12345'
 user.user_role = 'admin'
 user.save!
+
+30.times do |t|
+    user = Doctor.create! :first_name => "Hash#{t}",
+                        :last_name => "Mahad1 #{t}",
+                        :city => "Unknown#{t}",
+                        :username => 'Mahad',
+                        :address => "Somalia#{t}",
+                        :primary_practice  => "Nurse#{t}",
+                        :secondary_practice=> "Pediatry#{t}",
+                        :gcmid => 'Blood pressure'
+  
+  end

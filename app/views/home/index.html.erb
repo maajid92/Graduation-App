@@ -17,8 +17,9 @@
     <%= image_tag("africa.jpeg")%>
         
         <div class="overlay">
-            <h2>Hover effect 2</h2>
+            <h2>We Care for your health</h2>
             <a class="info" href="#">link here</a>
+            <%= link_to "Register here",  new_user_registration_path, :"data-no-turbolink"=>true,method:"get", class: 'info'  %>
         </div>
     </div>
 </div>

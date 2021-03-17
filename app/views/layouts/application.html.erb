@@ -39,9 +39,6 @@
                         <%= link_to 'Doctor Notifications', doctor_notifications_path, class: 'pure-menu-link'  %>
                       <% end %>
                     </li>
-                    <li class="pure-menu-item">
-                      <%= link_to 'In Patients', in_patients_path, class: 'pure-menu-link'  %>
-                    </li>
                     <% if user_signed_in? %>
                     <li class="pure-menu-item">
                     <%= link_to "Logout", destroy_user_session_path, :method => :delete, class: 'pure-menu-link'  %>

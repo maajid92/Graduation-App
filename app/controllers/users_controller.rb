@@ -2,13 +2,11 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
-  # GET /users.json
   def index
     @users = User.all
   end
 
   # GET /users/1
-  # GET /users/1.json
   def show
   end
 
@@ -25,7 +23,6 @@ class UsersController < ApplicationController
   end
 
   # POST /users/singin
-  # POST /users/signin.json
   def signin
     @user = User.new(login_params)
     _user = User.where(username: login_params[:username], password: login_params[:password]).first()
@@ -41,7 +38,6 @@ class UsersController < ApplicationController
       else
         @user.errors.add(:username, :blank, message: "Invalid credentials")
         format.html { render :login }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -66,13 +62,11 @@ class UsersController < ApplicationController
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # PATCH/PUT /users/1
-  # PATCH/PUT /users/1.json
   def update
     respond_to do |format|
       if @user.update(user_params)
@@ -80,7 +74,6 @@ class UsersController < ApplicationController
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
